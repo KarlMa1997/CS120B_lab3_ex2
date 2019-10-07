@@ -23,7 +23,7 @@ unsigned char GetBit(unsigned char x, unsigned char k) {
 int main(void) {
 	
 	DDRA = 0x00; PORTA = 0xFF;
-	DDRC = 0xFF; PORTB = 0x00;
+	DDRC = 0xFF; PORTC = 0x00;
 	
 	unsigned char temp = 0x00;
 	unsigned char fuel = 0;
@@ -32,41 +32,41 @@ int main(void) {
 		fuel = PINA & 0x0F;
 		if (fuelLevel >= 1)
 		{
-			tmpC = SetBit(tmpC, 5, 1); 
+			temp = SetBit(temp, 5, 1); 
 		}
 
 		if (fuelLevel >= 3)
 		{
-			tmpC = SetBit(tmpC, 4, 1); 
+			temp = SetBit(temp, 4, 1); 
 		}
 		
 		if (fuelLevel <= 4) // low fuel warning
 		{
-			tmpC = SetBit(tmpC, 6, 1); 
+			temp = SetBit(temp, 6, 1); 
 		}
 		
 		if (fuelLevel >= 5)
 		{
-			tmpC = SetBit(tmpC, 6, 0); 
-			tmpC = SetBit(tmpC, 3, 1); 
+			temp = SetBit(temp, 6, 0); 
+			temp = SetBit(temp, 3, 1); 
 		}
 
 		if (fuelLevel >= 7)
 		{
-			tmpC = SetBit(tmpC, 2, 1);
+			temp = SetBit(temp, 2, 1);
 		}
 
 		if (fuelLevel >= 10)
 		{
-			tmpC = SetBit(tmpC, 1, 1);
+			temp = SetBit(temp, 1, 1);
 		}
 
 		if (fuelLevel >= 13)
 		{
-			tmpC = SetBit(tmpC, 0, 1);
+			temp = SetBit(temp, 0, 1);
 		}
 
-	 		PORTC = tmpC;	
+	 		PORTC = temp;	
 		
     	}
     	return 1;
