@@ -30,38 +30,38 @@ int main(void) {
     	while (1) 
 	{
 		fuel = PINA & 0x0F;
-		if (fuelLevel >= 1)
+		if (fuel >= 1)
 		{
 			temp = SetBit(temp, 5, 1); 
 		}
 
-		if (fuelLevel >= 3)
+		if (fuel >= 3)
 		{
 			temp = SetBit(temp, 4, 1); 
 		}
 		
-		if (fuelLevel <= 4) // low fuel warning
+		if (fuel <= 4) // low fuel warning
 		{
 			temp = SetBit(temp, 6, 1); 
 		}
 		
-		if (fuelLevel >= 5)
+		if (fuel >= 5)
 		{
 			temp = SetBit(temp, 6, 0); 
 			temp = SetBit(temp, 3, 1); 
 		}
 
-		if (fuelLevel >= 7)
+		if (fuel >= 7)
 		{
 			temp = SetBit(temp, 2, 1);
 		}
 
-		if (fuelLevel >= 10)
+		if (fuel >= 10)
 		{
 			temp = SetBit(temp, 1, 1);
 		}
 
-		if (fuelLevel >= 13)
+		if (fuel >= 13)
 		{
 			temp = SetBit(temp, 0, 1);
 		}
